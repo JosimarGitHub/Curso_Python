@@ -8,7 +8,7 @@ from alien import Alien
 class AlienInvasion:
     """Overall class to manage game assets and behavior."""
 
-######################################################################
+#####################################################################
     def __init__(self):
         """Initialize the game, and create game resources."""
 
@@ -28,6 +28,7 @@ class AlienInvasion:
 
         self._create_fleet()
 
+#####################################################################################
 #####################################################################################   
     def _check_events(self):
         """Respond to keypresses and mouse events."""
@@ -77,6 +78,7 @@ class AlienInvasion:
             self.ship.moving_left = False
 
 #####################################################################################
+#####################################################################################
     def _update_screen(self):
         """Update images on the screen, and flip to the new screen."""
 
@@ -90,6 +92,7 @@ class AlienInvasion:
         # Make the most recently drawn screen visible.
         pygame.display.flip()
 
+#####################################################################################
 ##################################################################################### 
     def _fire_bullet(self):
         """Create a new bullet and add it to the bullets group."""
@@ -109,6 +112,7 @@ class AlienInvasion:
             #print(len(self.bullets))
 
 ######################################################################################
+######################################################################################
     def _create_fleet(self):
         """Create the fleet of aliens."""
 
@@ -126,6 +130,24 @@ class AlienInvasion:
             current_y += 2 * alien_height
 
 ######################################################################################
+    def _check_fleet_edges(self):
+        """Respond appropriately if any aliens have reached an edge."""
+
+        for alien in self.aliens.sprites():
+            if alien.check_edges():
+                self._change_fleet_direction()
+                break
+
+#######################################################################################
+    def _change_fleet_direction(self):
+        """Drop the entire fleet and change the fleet's direction."""
+
+        for alien in self.aliens.sprites():
+            alien.rect.y += self.settings.fleet_drop_speed
+        self.settings.fleet_direction *= -1
+
+######################################################################################
+######################################################################################
     def _create_alien(self, x_position, y_position):
         new_alien = Alien(self)
         new_alien.x = x_position
@@ -134,6 +156,14 @@ class AlienInvasion:
         self.aliens.add(new_alien)
 
 #####################################################################################
+    def _update_aliens(self):
+        """Check if the fleet is at an edge, then update positions."""
+
+        self._check_fleet_edges()
+        self.aliens.update()
+
+#####################################################################################
+#####################################################################################
     def run_game(self):
         """Start the main loop for the game."""
         while True:
@@ -141,10 +171,13 @@ class AlienInvasion:
             self._check_events()
             self.ship.update()
             self._update_bullets()
+            self._update_aliens()
             self._update_screen()    
             self.clock.tick(60)
-            
+
+#####################################################################################           
 #####################################################################################
+
  
 ######################################################################
 #                            MAIN PROGRAM                            #
