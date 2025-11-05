@@ -1,0 +1,7 @@
+Em python podemos imprimir textos no terminal
+Em python podemos usar for para laços de repetição
+Em python podemos criar listas armazenando diversos valores
+Em python podemos criar dicionários com varias chaves e valor 
+Em python podemos criar funções que executem determinada tarefa
+Em python podemos criar classes que modelem algo no mundo real
+Em python podemos criar modulos que armazenem varias classes
