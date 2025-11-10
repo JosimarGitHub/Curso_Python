@@ -8,17 +8,13 @@ class Rain(Sprite):
         super().__init__()
         self.screen = rd_show.screen
 
-        self.image = pygame.image.load('chuva.bmp')
+        self.image = pygame.image.load('/home/dev_net/Desktop/Curso_Python/Exercicios/13-3_RAINDROPS/chuva.bmp')
         self.rect = self.image.get_rect()
 
         self.rect.x = self.rect.width
         self.rect.y = self.rect.height
         self.rain_drop_speed = 1
-    
-    def check_in_bottom(self):
-
-        return (self.image.get_rect().y > self.screen.get_rect().bottom)
-            
+        
     def update(self):
 
         self.rect.y += self.rain_drop_speed

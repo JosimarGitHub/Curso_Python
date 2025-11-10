@@ -4,7 +4,7 @@ class Rocket:
     def __init__(self,game_shooter):
         self.tela = game_shooter.tela
         self.tela_rect = game_shooter.tela.get_rect()
-        self.image = pygame.image.load('rocket.bmp')
+        self.image = pygame.image.load('/home/dev_net/Desktop/Curso_Python/Exercicios/12-6._Sideways_Shooter/rocket.bmp')
         self.image_rect = self.image.get_rect()
         self.image_rect.midleft = self.tela_rect.midleft
         self.image_y = float(self.image_rect.y)

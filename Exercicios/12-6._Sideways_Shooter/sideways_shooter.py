@@ -2,6 +2,8 @@ import sys
 import pygame
 from rocket import Rocket
 from missil import Missil
+from nave_inimiga import Enemy
+
 
 class Shooter:
     """ Cria um foguete no canto esquerdo/Centro da Tela
@@ -18,7 +20,7 @@ class Shooter:
 
         #Cria uma tela na Resolução desejada
         self.tela = pygame.display.set_mode((1200, 800))
-
+        
         #Coloca um titulo na Tela criada
         pygame.display.set_caption("Atirador de Elite")
 
@@ -30,6 +32,15 @@ class Shooter:
 
         #Cria um Grupo(lista) para a instacia Misseis
         self.misseis = pygame.sprite.Group()
+
+        #Cria um grupo de naves inimigas para combate
+        self.naves_inimigas1 = pygame.sprite.Group()
+        self.naves_inimigas2 = pygame.sprite.Group()
+
+        self.direction1 = 0
+        self.direction2 = 0
+
+        self._create_fleet()
 
     
     def _check_events(self):
@@ -100,6 +111,10 @@ class Shooter:
         #Desenha foguete na posição atual
         self.rocket.blitme()
 
+        #Desenha nave inimiga
+        self.naves_inimigas1.draw(self.tela)
+        self.naves_inimigas2.draw(self.tela)
+
         #Atualiza a tela
         pygame.display.flip()
 
@@ -127,7 +142,63 @@ class Shooter:
         for missel in self.misseis.copy():
             if missel.rect.right >= self.tela.get_rect().right:
                 self.misseis.remove(missel)
+    
+    
+    def _create_fleet(self):
+            nave_inimiga = Enemy(self)
+            current_x = (self.tela.get_rect().width - nave_inimiga.rect.width)
+            current_y = 0
+            i = 0
+            while current_x > 300:
+                while current_y < 800: 
+                    self._create_nave_inimiga(current_x, current_y, i)
+                    current_y += 2 * nave_inimiga.rect.height
+                i += 1
+                if (i % 2) == 0:
+                    current_y = 0
+                else:
+                    current_y = nave_inimiga.rect.height
 
+                current_x -= nave_inimiga.rect.width
+
+
+    def _create_nave_inimiga(self,position_x, position_y, grupo):
+        new_nave = Enemy(self)
+        new_nave.rect.x = position_x
+        new_nave.rect.y = position_y
+        if grupo % 2 == 0:
+            self.naves_inimigas1.add(new_nave)
+        else:
+            self.naves_inimigas2.add(new_nave)    
+    
+
+    def _update_nave_inimiga(self):
+            
+            self.direction1 = self._check_fim_de_tela(self.naves_inimigas1, self.direction1)
+            for nave in self.naves_inimigas1.sprites():
+                nave.y = float(nave.rect.y)
+                nave.y += 1 * self.direction1
+                nave.rect.y = nave.y
+            self.naves_inimigas1.update()
+            self.direction2 = self._check_fim_de_tela(self.naves_inimigas2, self.direction2)
+            for nave in self.naves_inimigas2.sprites():
+                nave.y = float(nave.rect.y)
+                nave.y += 1 * self.direction2
+                nave.rect.y = nave.y
+            self.naves_inimigas2.update()
+
+
+    def _check_fim_de_tela(self, checar_nave, direcao):
+
+        for nave in checar_nave.sprites():
+            if nave.deteccao_fim_tela() == 1:
+                return 1
+            
+            elif nave.deteccao_fim_tela() == -1:
+                return -1
+        
+        return direcao
+            
 
     def run_game(self):
         """Cria um laço inifito para rodar o Jogo
@@ -145,11 +216,14 @@ class Shooter:
             #Função de atualização dos misseis
             self._update_misseis()
 
+            #Função de atualização das naves inimigas
+            self._update_nave_inimiga()
+
             #Função de atualização da tela
             self._update_screen()
 
             #Taxa de flames da tela
-            self.clock.tick(120)
+            self.clock.tick(60)
 
 
 #########################################################

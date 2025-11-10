@@ -16,6 +16,7 @@ class RainDrops:
         self.cloud_height = 0
         self._create_clouds()
 
+        self.list_rains = []
         self.rains = pygame.sprite.Group()
         self._create_rain()
 
@@ -46,7 +47,8 @@ class RainDrops:
             new_rain.rect.y = current_y
             self.rains.add(new_rain)
             current_x += rain_width
-    
+        self.list_rains.append(self.rains)
+
     def _check_events(self):
 
         for event in pygame.event.get():
@@ -66,10 +68,12 @@ class RainDrops:
         
         self.rains.update()
         for rain in self.rains:
-            if rain.rect.y > self.screen.get_rect().height:
-                self.rains.empty()
-            if rain.rect.y > (rain.rect.height + 5):
+            if rain.rect.y == (rain.rect.height + 150):
                 self._create_rain()
+                break
+            if rain.rect.y > (self.screen.get_rect().height - 80):
+                self.rains.remove(rain)
+        
     def run_game(self):
 
         while True:
