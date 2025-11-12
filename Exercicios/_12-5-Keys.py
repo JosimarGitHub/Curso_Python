@@ -26,6 +26,9 @@ while True:
 
         elif event.type == pygame.KEYDOWN:
             evento = f"Tecla pressionada: {pygame.key.name(event.key)}"
+        
+        elif event.type == pygame.MOUSEMOTION:
+            evento = f"Posição do mouse: {pygame.mouse.get_pos()}"
 
         if evento == "Tecla pressionada: q":
             sair = True

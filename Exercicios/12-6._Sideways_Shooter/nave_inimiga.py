@@ -16,11 +16,12 @@ class Enemy(Sprite):
         self.y = float(self.rect.y)
         self.x = float(self.rect.x)
         self.direction = 0
+        self.velocidade_frota = game_shooter.velocidade
     
     def update(self):
 
         self.x = float(self.rect.x)
-        self.x -= 1
+        self.x -= self.velocidade_frota
         self.rect.x = self.x
 
     def deteccao_fim_tela(self):
