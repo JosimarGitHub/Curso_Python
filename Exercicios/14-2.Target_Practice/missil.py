@@ -12,7 +12,7 @@ class Missil(Sprite):
         self.x = float(self.rect.x)
 
     def update(self):
-        self.x += 4
+        self.x += 6
         self.rect.x = self.x
 
     def draw_missel(self):

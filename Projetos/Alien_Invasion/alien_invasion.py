@@ -42,8 +42,26 @@ class AlienInvasion:
         # Start Alien Invasion in an active state.
         self.game_active = False
 
+        # Pause the game
+        self.pause = False
+
+        # Open the game level
+        self.game_level = False
+
         # Make the Play button.
         self.play_button = Button(self, "Play")
+
+        # Make the level button.
+        self.level_button = Button(self, "Game Level", 100)
+
+        # Make the level button easy.
+        self.level_easy = Button(self, "EASY", -100)
+
+        # Make the level button medium.
+        self.level_medium = Button(self, "MEDIUM")
+
+        # Make the level button hard.
+        self.level_hard = Button(self, "HARD", 100)
 
 #####################################################################################
 #####################################################################################   
@@ -64,7 +82,7 @@ class AlienInvasion:
             
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 mouse_pos = pygame.mouse.get_pos()
-                self._check_play_button(mouse_pos)
+                self._check_button(mouse_pos)
 
 #####################################################################################               
     def _check_keydown_events(self, event):
@@ -83,7 +101,12 @@ class AlienInvasion:
             self._fire_bullet()
         
         elif event.key == pygame.K_p:
-            self._start_game()
+            if not self.game_active:
+                self._start_game()
+            elif self.pause:
+                self.pause = False
+            else:
+                self.pause = True   
 
         elif event.key == pygame.K_q:
             # Exit of the game
@@ -102,12 +125,46 @@ class AlienInvasion:
             self.ship.moving_left = False
     
 ######################################################################################
-    def _check_play_button(self,mouse_pos):
+    def _check_button(self,mouse_pos):
         """Start a new game when the player clicks Play."""
         button_clicked = self.play_button.rect.collidepoint(mouse_pos)
-        if button_clicked and (not self.game_active):
+        if (button_clicked and (not self.game_active) and (not self.game_level)):
+
+            # Reset the game settings
+            self.settings.initialize_dynamic_settings()
+            
+            #Start the game
             self._start_game()
-        
+            mouse_pos = (0, 0)
+
+        button_clicked = self.level_button.rect.collidepoint(mouse_pos)
+        if (button_clicked and (not self.game_active) and (not self.game_level)):
+            self.game_level = True
+            mouse_pos = (0, 0)
+            
+
+        if self.game_level:
+            
+            button_clicked = self.level_easy.rect.collidepoint(mouse_pos)
+            if button_clicked:
+                self.settings.level_easy, self.settings.level_medium, self.settings.level_hard = True, False, False
+                self.settings.initialize_dynamic_settings()
+                self.game_level = False
+                
+
+            button_clicked = self.level_medium.rect.collidepoint(mouse_pos)
+            if button_clicked:
+                self.settings.level_easy, self.settings.level_medium, self.settings.level_hard = False, True, False
+                self.settings.initialize_dynamic_settings()
+                self.game_level = False
+                
+            
+            button_clicked = self.level_hard.rect.collidepoint(mouse_pos)
+            if button_clicked:
+                self.settings.level_easy, self.settings.level_medium, self.settings.level_hard = False, False, True
+                self.settings.initialize_dynamic_settings()
+                self.game_level = False
+               
 #####################################################################################
 #####################################################################################
     def _update_screen(self):
@@ -123,10 +180,24 @@ class AlienInvasion:
         # Draw the play button if the game is inactive.
         if not self.game_active:
             self.play_button.draw_button()
+            self.level_button.draw_button()
 
         # Make the most recently drawn screen visible.
         pygame.display.flip()
 
+#####################################################################################
+    def _open_game_level(self):
+
+        #Redraw the screen during each pass through the loop
+        self.screen.fill(self.settings.bg_color)
+
+        self.level_easy.draw_button()
+        self.level_medium.draw_button()
+        self.level_hard.draw_button()
+
+        # Make the most recently drawn screen visible.
+        pygame.display.flip()
+    
 #####################################################################################
 ##################################################################################### 
     def _fire_bullet(self):
@@ -154,13 +225,13 @@ class AlienInvasion:
         """Respond to bullet-alien collisions.""" 
         # Remove any bullets and aliens that have collided.
 
-        collisions = pygame.sprite.groupcollide(self.bullets, self.aliens, True, True)
+        collisions = pygame.sprite.groupcollide(self.bullets, self.aliens, False, True)
 
         if not self.aliens:
             # Destroy existing bullets and create new fleet.
             self.bullets.empty()
             self._create_fleet()
-            self.settings.alien_speed += 1
+            self.settings.increase_speed()
     
 ######################################################################################
 ######################################################################################
@@ -280,12 +351,17 @@ class AlienInvasion:
             
             self._check_events()
 
-            if self.game_active:
+            if self.game_active and not self.pause and not self.game_level:
                 self.ship.update()
                 self._update_bullets()
                 self._update_aliens()
 
-            self._update_screen()    
+            if not self.game_level:
+                self._update_screen()
+
+            if self.game_level:
+                self._open_game_level() 
+
             self.clock.tick(60)
 
 #####################################################################################           

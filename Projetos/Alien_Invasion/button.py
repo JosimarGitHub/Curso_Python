@@ -3,7 +3,7 @@ import pygame.font
 class Button:
     """A class to build buttons for the game."""
 
-    def __init__(self, ai_game, msg):
+    def __init__(self, ai_game, msg, y_position = 0):
         """Initialize button attributes."""
 
         self.screen = ai_game.screen
@@ -20,6 +20,7 @@ class Button:
         self.rect = pygame.Rect(0, 0, self.width, self.height)
 
         self.rect.center = self.screen_rect.center
+        self.rect.centery = self.screen_rect.centery + y_position
 
         # The button message needs to be prepped only once.
         self._prep_msg(msg)

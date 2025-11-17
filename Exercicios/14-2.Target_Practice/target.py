@@ -19,7 +19,10 @@ class Target:
         self.rect = pygame.Rect(0, 0, self.width, self.height)
 
         self.rect.midright = self.screen_rect.midright
-        self.rect.x = self.screen_rect.width - (self.width + 10)
+        self.rect.x = self.screen_rect.width - (self.width + 100)
+        self.y = float(self.rect.y)
+        self.direction = 1
+        self.speed = 1
 
         # The button message needs to be prepped only once.
         self._prep_target("")
@@ -35,4 +38,16 @@ class Target:
         """Draw blank button and then draw message."""
         self.screen.fill(self.target_color, self.rect)
         self.screen.blit(self.target_image, self.target_image_rect)
+    
+    def update(self):
+
+        if self.rect.top <= 0:
+            self.direction = 1
+        
+        if self.rect.bottom >= self.screen.get_rect().bottom:
+            self.direction = -1
+
+        self.y += self.speed * self.direction
+        self.rect.y = self.y
+
         
