@@ -1,17 +1,20 @@
+#Bibliotecas Auxiliares
 import sys
 from time import sleep
-
 import pygame
+########################################
 
+#Classes Auxiliares
 from settings import Settings
 from game_stats import GameStats
+from scoreboard import Scoreboard
 from button import Button
-
 from ship import Ship
 from bullet import Bullet
 from alien import Alien
+#########################################
 
-
+#Classe Principal
 class AlienInvasion:
     """Overall class to manage game assets and behavior."""
 
@@ -32,6 +35,11 @@ class AlienInvasion:
 
          # Create an instance to store game statistics.
         self.stats = GameStats(self)
+        with open('/home/dev_net/Desktop/Curso_Python/Projetos/Alien_Invasion/files/high_score.txt', 'r') as file:
+                    self.stats.high_score = int(file.read())
+
+        # Create a scoreboard.
+        self.sb = Scoreboard(self)
 
         self.ship = Ship(self)
         self.bullets = pygame.sprite.Group()
@@ -109,6 +117,10 @@ class AlienInvasion:
                 self.pause = True   
 
         elif event.key == pygame.K_q:
+
+            # Save high score in a file
+            with open('/home/dev_net/Desktop/Curso_Python/Projetos/Alien_Invasion/files/high_score.txt', 'w') as file:
+                    file.write(str(self.stats.high_score))
             # Exit of the game
             sys.exit()
 
@@ -132,7 +144,13 @@ class AlienInvasion:
 
             # Reset the game settings
             self.settings.initialize_dynamic_settings()
-            
+
+            #Reset game statistics
+            self.stats.reset_stats()
+            self.sb.prep_score()
+            self.sb.prep_level()
+            self.sb.prep_ships()
+
             #Start the game
             self._start_game()
             mouse_pos = (0, 0)
@@ -176,6 +194,9 @@ class AlienInvasion:
             bullet.draw_bullet()
         self.ship.blitme()
         self.aliens.draw(self.screen)
+
+        # Draw the score information
+        self.sb.show_score()
 
         # Draw the play button if the game is inactive.
         if not self.game_active:
@@ -227,11 +248,20 @@ class AlienInvasion:
 
         collisions = pygame.sprite.groupcollide(self.bullets, self.aliens, False, True)
 
+        if collisions:
+            self.stats.score += self.settings.alien_points
+            self.sb.prep_score()
+            self.sb.check_high_score()
+
         if not self.aliens:
             # Destroy existing bullets and create new fleet.
             self.bullets.empty()
             self._create_fleet()
             self.settings.increase_speed()
+
+            # Increase level.
+            self.stats.level += 1
+            self.sb.prep_level()
     
 ######################################################################################
 ######################################################################################
@@ -311,6 +341,7 @@ class AlienInvasion:
 
             # Decrement ships_left.
             self.stats.ships_left -= 1
+            self.sb.prep_ships()
 
             # Get rid of any remaining bullets and aliens.
             self.bullets.empty()
