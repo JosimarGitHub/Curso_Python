@@ -33,18 +33,18 @@ class AlienInvasion:
 
         pygame.display.set_caption("Alien Invasion")
 
-         # Create an instance to store game statistics.
+        # Create an instance to store game statistics.
         self.stats = GameStats(self)
-        with open('/home/dev_net/Desktop/Curso_Python/Projetos/Alien_Invasion/files/high_score.txt', 'r') as file:
-                    self.stats.high_score = int(file.read())
+        
+         # Read the last high score
+        self._read_high_score()
 
         # Create a scoreboard.
         self.sb = Scoreboard(self)
-
+        
         self.ship = Ship(self)
         self.bullets = pygame.sprite.Group()
         self.aliens = pygame.sprite.Group()
-
         self._create_fleet()
 
         # Start Alien Invasion in an active state.
@@ -70,6 +70,8 @@ class AlienInvasion:
 
         # Make the level button hard.
         self.level_hard = Button(self, "HARD", 100)
+
+        
 
 #####################################################################################
 #####################################################################################   
@@ -109,18 +111,12 @@ class AlienInvasion:
             self._fire_bullet()
         
         elif event.key == pygame.K_p:
-            if not self.game_active:
-                self._start_game()
-            elif self.pause:
-                self.pause = False
-            else:
-                self.pause = True   
+            self._check_game_status()     
 
         elif event.key == pygame.K_q:
 
-            # Save high score in a file
-            with open('/home/dev_net/Desktop/Curso_Python/Projetos/Alien_Invasion/files/high_score.txt', 'w') as file:
-                    file.write(str(self.stats.high_score))
+            self._save_high_score()
+
             # Exit of the game
             sys.exit()
 
@@ -139,49 +135,19 @@ class AlienInvasion:
 ######################################################################################
     def _check_button(self,mouse_pos):
         """Start a new game when the player clicks Play."""
-        button_clicked = self.play_button.rect.collidepoint(mouse_pos)
-        if (button_clicked and (not self.game_active) and (not self.game_level)):
 
-            # Reset the game settings
-            self.settings.initialize_dynamic_settings()
+        if not self.game_level:
+            button_clicked = self.play_button.rect.collidepoint(mouse_pos)
+            if button_clicked and (not self.game_active):
+                self._start_game()
 
-            #Reset game statistics
-            self.stats.reset_stats()
-            self.sb.prep_score()
-            self.sb.prep_level()
-            self.sb.prep_ships()
-
-            #Start the game
-            self._start_game()
-            mouse_pos = (0, 0)
-
-        button_clicked = self.level_button.rect.collidepoint(mouse_pos)
-        if (button_clicked and (not self.game_active) and (not self.game_level)):
-            self.game_level = True
-            mouse_pos = (0, 0)
+            button_clicked = self.level_button.rect.collidepoint(mouse_pos)
+            if button_clicked and (not self.game_active):
+                self.game_level = True
+                mouse_pos = (0, 0)
             
-
         if self.game_level:
-            
-            button_clicked = self.level_easy.rect.collidepoint(mouse_pos)
-            if button_clicked:
-                self.settings.level_easy, self.settings.level_medium, self.settings.level_hard = True, False, False
-                self.settings.initialize_dynamic_settings()
-                self.game_level = False
-                
-
-            button_clicked = self.level_medium.rect.collidepoint(mouse_pos)
-            if button_clicked:
-                self.settings.level_easy, self.settings.level_medium, self.settings.level_hard = False, True, False
-                self.settings.initialize_dynamic_settings()
-                self.game_level = False
-                
-            
-            button_clicked = self.level_hard.rect.collidepoint(mouse_pos)
-            if button_clicked:
-                self.settings.level_easy, self.settings.level_medium, self.settings.level_hard = False, False, True
-                self.settings.initialize_dynamic_settings()
-                self.game_level = False
+            self._select_level(mouse_pos)
                
 #####################################################################################
 #####################################################################################
@@ -357,23 +323,89 @@ class AlienInvasion:
         else:
             self.game_active = False
             pygame.mouse.set_visible(True)
+##########################################################################################
+##########################################################################################
+    def _save_high_score(self):
+        """Open a file and save the last high score before exit the game"""
+        with open('/home/dev_net/Desktop/Curso_Python/Projetos/Alien_Invasion/files/high_score.txt', 'w') as file:
+                    file.write(str(self.stats.high_score))
 
+##########################################################################################
+    def _read_high_score(self):
+        """Open a file and read the last high score before run the game"""
+        with open('/home/dev_net/Desktop/Curso_Python/Projetos/Alien_Invasion/files/high_score.txt', 'r') as file:
+                    self.stats.high_score = int(file.read())
+
+##########################################################################################
+##########################################################################################
+    def _check_game_status(self):
+        """Verify status running or stopped to 
+        start or pause the game when the key 'p' is pressed"""
+
+        if not self.game_active:
+            self._start_game()
+        elif self.pause:
+            self.pause = False
+        else:
+            self.pause = True
+
+####################################################################################
+####################################################################################
+    def _play_button_pressed(self):
+        # Reset the game settings
+        self.settings.initialize_dynamic_settings()
+
+        #Reset game statistics
+        self.stats.reset_stats()
+        self.sb.prep_score()
+        self.sb.prep_level()
+        self.sb.prep_ships()
+
+        #Start the game
+        self._start_game()
+        mouse_pos = (0, 0) 
+        
 #####################################################################################
 #####################################################################################
     def _start_game(self):
-        self.stats.reset_stats()
-        self.game_active = True
 
-        # Get rid of any remaining bullets and aliens.
-        self.bullets.empty()
-        self.aliens.empty()
+        if not self.game_active and not self.game_level:
+            self.stats.reset_stats()
+            self.game_active = True
 
-        # Create a new fleet and center the ship.
-        self._create_fleet()
-        self.ship.center_ship()
+            # Get rid of any remaining bullets and aliens.
+            self.bullets.empty()
+            self.aliens.empty()
 
-        # Hide the mouse cursor
-        pygame.mouse.set_visible(False)
+            # Create a new fleet and center the ship.
+            self._create_fleet()
+            self.ship.center_ship()
+
+            # Hide the mouse cursor
+            pygame.mouse.set_visible(False)
+
+#####################################################################################
+    def _select_level(self,mouse_pos):
+            
+        button_clicked = self.level_easy.rect.collidepoint(mouse_pos)
+        if button_clicked:
+            self.settings.level_easy, self.settings.level_medium, self.settings.level_hard = True, False, False
+            self.settings.initialize_dynamic_settings()
+            self.game_level = False
+                
+
+        button_clicked = self.level_medium.rect.collidepoint(mouse_pos)
+        if button_clicked:
+            self.settings.level_easy, self.settings.level_medium, self.settings.level_hard = False, True, False
+            self.settings.initialize_dynamic_settings()
+            self.game_level = False
+                
+            
+        button_clicked = self.level_hard.rect.collidepoint(mouse_pos)
+        if button_clicked:
+            self.settings.level_easy, self.settings.level_medium, self.settings.level_hard = False, False, True
+            self.settings.initialize_dynamic_settings()
+            self.game_level = False
 
 #####################################################################################
     def run_game(self):
