@@ -5,25 +5,21 @@ import plotly.express as px
 
 # Read data as a string and convert to a Python object.
 path = Path('/home/dev_net/Desktop/Curso_Python/Projetos/' \
-'Generating_Data/eq_data/eq_data_30_day_m1.geojson')
+'Generating_Data/eq_data/earthquakes_20251201.geojson')
 
-contents = path.read_text()
-all_eq_data = json.loads(contents)
+all_eq_data = json.loads(path.read_text())
 
 all_eq_dicts = all_eq_data['features']
+title = all_eq_data['metadata']['title']
 
 mags, lons, lats, eq_titles = [], [], [], []
 for eq_dict in all_eq_dicts:
-    mag = eq_dict['properties'] ['mag']
-    eq_title = eq_dict['properties'] ['title']
-    lon = eq_dict['geometry']['coordinates'][0]
-    lat = eq_dict['geometry']['coordinates'][1]
-    mags.append(mag)
-    eq_titles.append(eq_title)
-    lons.append(lon)
-    lats.append(lat)
+    if eq_dict['properties'] ['mag'] > 0:
+        mags.append(eq_dict['properties'] ['mag'])
+        eq_titles.append(eq_dict['properties'] ['title'])
+        lons.append(eq_dict['geometry']['coordinates'][0])
+        lats.append(eq_dict['geometry']['coordinates'][1])
 
-title = 'Global Earthquakes'
 fig = px.scatter_geo(lat=lats, 
                      lon=lons, 
                      size=mags, 
