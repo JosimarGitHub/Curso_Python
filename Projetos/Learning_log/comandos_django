@@ -1,0 +1,76 @@
+VITUAL ENVIRONMENT
+
+python -m venv ll_env - CRIAR
+
+source ll_env/bin/activate   -   ATIVAR
+
+deactivate - DESATIVAR
+
+##################################################################
+
+ATUALIZAR O GERENCIADOR DE BIBLIOTECAS 'PIP'
+
+pip install --upgrade pip
+
+#################################################################
+
+DJANGO
+
+pip install django - INSTALAR
+
+django-admin startproject ll_project .   - CRIAR NOVO PROJETO
+
+python manage.py migrate  - CRIAR/ATUALIZAR DATABASE
+
+python manage.py startapp learning_logs - INICIANDO UM APP(no ,lugar de learning_logs colocar o nome desejado)
+
+alterar na pasta projeto o PROJETO/settings.py, colocar em INSTALLED_APPS o novo app criado
+
+Definir um novo modelo em APP/models.py - CRIAR NOVO MODELO
+
+python manage.py makemigrations learning_logs  -  ATIVANDO UM NOVO MODELO(no ,lugar de learning_logs colocar o nome DO APP)
+
+python manage.py createsuperuser - CRIAR UM SUPER USER(colocar nome, email,senha)
+
+testes dos modelos no admin site, registrar os novos modelos em PROJETO/admin.py admin.site.register('name')
+
+python manage.py runserver - INICIAR O SERVIDOR WEB
+
+http://localhost:8000/, or http://127.0.0.1:8000/ - ENDEREÇO DEFAULT
+
+python manage.py runserver 8001 - MUDAR A PORTA CASO A DEFAULT ESTEJA SENDO USADA
+
+python manage.py shell  -  ABRINDO UM SESSÃO DO SHELL
+
+
+FAZER AS PAGINAS
+
+DIFINIR URLS
+PROJETO/urls.py, from django.urls import path, include  path('', include('APP.urls'))
+
+Criar um novo urls.py dentro da pasta APP
+❶"""Defines URL patterns for learning_logs.""" 
+❷ from django.urls import path 
+❸ from . import views 
+❹ app_name = 'learning_logs' 
+❺ urlpatterns = [ 
+    # Home page 
+❻     path('', views.index, name='index'), 
+]
+
+Criar uma view em APP/views.py
+def index(request): 
+    """The home page for Learning Log.""" 
+    return render(request, 'learning_logs/index.xhtml')
+    
+Criar um tamplate arquivo.xhtml
+<p>Learning Log</p> 
+<p>Learning Log helps you keep track of your learning, for an
+y topic you're 
+interested in.</p>
+
+
+
+
+
+ 

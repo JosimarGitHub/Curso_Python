@@ -1,0 +1,801 @@
+{
+    "report": {
+        "@skipped": "0",
+        "@listed": "100",
+        "args": {
+            "type": null,
+            "name": null,
+            "licensed": null,
+            "search": null
+        },
+        "item": [
+            {
+                "id": "38113",
+                "gid": "2256345390",
+                "type": "TV",
+                "name": "Horror Collector",
+                "precision": "TV",
+                "vintage": "2026-10"
+            },
+            {
+                "id": "38112",
+                "gid": "1345169706",
+                "type": "ONA",
+                "name": "Eagle Talon XX",
+                "precision": "ONA",
+                "vintage": "2026-01-06"
+            },
+            {
+                "id": "38109",
+                "gid": "3776744880",
+                "type": "manga",
+                "name": "Grendizer U: The Inception",
+                "precision": "manga",
+                "vintage": "2024-08-16"
+            },
+            {
+                "id": "38108",
+                "gid": "1161920681",
+                "type": "manga",
+                "name": "Prince's Body Pillow",
+                "precision": "manga",
+                "vintage": "2021-01-21"
+            },
+            {
+                "id": "38107",
+                "gid": "942508565",
+                "type": "manga",
+                "name": "Crow Hill: Don't Be Shy!!",
+                "precision": "manga",
+                "vintage": "2018-06-01 to 2018-11-01"
+            },
+            {
+                "id": "38106",
+                "gid": "653512774",
+                "type": "OAV",
+                "name": "Does It Count If You Lose Your Virginity to an Android?",
+                "precision": "OAV"
+            },
+            {
+                "id": "38105",
+                "gid": "2863631006",
+                "type": "movie",
+                "name": "Ginga Tokky\u016b Milky\u2606Subway Kakueki Teisha Gekij\u014d Iki",
+                "precision": "movie",
+                "vintage": "2026-02-06"
+            },
+            {
+                "id": "38101",
+                "gid": "2436285831",
+                "type": "manga",
+                "name": "Cosmic Princess Kaguya!",
+                "precision": "manga",
+                "vintage": "2026-01"
+            },
+            {
+                "id": "38100",
+                "gid": "2141744452",
+                "type": "movie",
+                "name": "Detective Conan: Highway no Datenshi",
+                "precision": "movie",
+                "vintage": "2026-04-10"
+            },
+            {
+                "id": "38097",
+                "gid": "1678946284",
+                "type": "TV",
+                "name": "Demons' Crest",
+                "precision": "TV"
+            },
+            {
+                "id": "38096",
+                "gid": "1089235872",
+                "type": "manga",
+                "name": "Demons' Crest",
+                "precision": "manga",
+                "vintage": "2022-11-06"
+            },
+            {
+                "id": "38095",
+                "gid": "1770081829",
+                "type": "manga",
+                "name": "Smokey Sundays",
+                "precision": "manga",
+                "vintage": "2014-01-25 to 2014-02-25"
+            },
+            {
+                "id": "38094",
+                "gid": "1747833936",
+                "type": "manga",
+                "name": "You're Way Too Cheeky, Chigaya-kun!",
+                "precision": "manga",
+                "vintage": "2024-11-27"
+            },
+            {
+                "id": "38093",
+                "gid": "1883012487",
+                "type": "manga",
+                "name": "Parallel Leap Syndrome",
+                "precision": "manga",
+                "vintage": "2022-08-30"
+            },
+            {
+                "id": "38092",
+                "gid": "979597623",
+                "type": "manga",
+                "name": "Noumi-senpai no Benmei",
+                "precision": "manga",
+                "vintage": "2023-10-27 to 2024-08-04"
+            },
+            {
+                "id": "38091",
+                "gid": "3215935439",
+                "type": "manga",
+                "name": "Living with My Old Cat",
+                "precision": "manga",
+                "vintage": "2019-10-25"
+            },
+            {
+                "id": "38088",
+                "gid": "2437580480",
+                "type": "manga",
+                "name": "Kuroneko Nyango no B\u014dken Reboot",
+                "precision": "manga",
+                "vintage": "2025-05-01"
+            },
+            {
+                "id": "38087",
+                "gid": "3433479676",
+                "type": "manga",
+                "name": "Adventure of Black Cat Nyango",
+                "precision": "manga",
+                "vintage": "2022-09-09 to 2023-12-08"
+            },
+            {
+                "id": "38086",
+                "gid": "1266770195",
+                "type": "manga",
+                "name": "Shino & Ren",
+                "precision": "manga",
+                "vintage": "2021-11-01"
+            },
+            {
+                "id": "38085",
+                "gid": "1696869350",
+                "type": "manga",
+                "name": "On the Boundary's Road",
+                "precision": "manga",
+                "vintage": "2024-06-14"
+            },
+            {
+                "id": "38084",
+                "gid": "2072950339",
+                "type": "manga",
+                "name": "Stay Away from My Sons!",
+                "precision": "manga",
+                "vintage": "2024-08-13 to 2024-12-17"
+            },
+            {
+                "id": "38082",
+                "gid": "900573103",
+                "type": "TV",
+                "name": "Everyday Host",
+                "precision": "TV 2"
+            },
+            {
+                "id": "38081",
+                "gid": "1150853144",
+                "type": "TV",
+                "name": "Charisma",
+                "precision": "TV"
+            },
+            {
+                "id": "38080",
+                "gid": "1672499382",
+                "type": "movie",
+                "name": "Eiga Himitsu no AiPri Mankai Bazulium Live!",
+                "precision": "movie",
+                "vintage": "2026-03-13"
+            },
+            {
+                "id": "38076",
+                "gid": "1365701544",
+                "type": "manga",
+                "name": "Girly Air Force",
+                "precision": "manga",
+                "vintage": "2018-10-26 to 2019-05-25"
+            },
+            {
+                "id": "38074",
+                "gid": "1294148114",
+                "type": "ONA",
+                "name": "SHION",
+                "precision": "ONA",
+                "vintage": "2025-12-01"
+            },
+            {
+                "id": "38073",
+                "gid": "2199492051",
+                "type": "manga",
+                "name": "SHION",
+                "precision": "manga Hinasho",
+                "vintage": "2025-05-15"
+            },
+            {
+                "id": "38072",
+                "gid": "625051203",
+                "type": "ONA",
+                "name": "Transformers: Earthspark Special Legacy of Hope",
+                "precision": "ONA",
+                "vintage": "2025-12-05"
+            },
+            {
+                "id": "38071",
+                "gid": "2044968337",
+                "type": "ONA",
+                "name": "Transformers: Earthspark Special Hometown Heroes",
+                "precision": "ONA",
+                "vintage": "2025-12-05"
+            },
+            {
+                "id": "38069",
+                "gid": "2729158646",
+                "type": "manga",
+                "name": "Niko Tama",
+                "precision": "manga",
+                "vintage": "2009-05-22 to 2012-12-22"
+            },
+            {
+                "id": "38068",
+                "gid": "831297978",
+                "type": "manga",
+                "name": "Saint Love Survivors",
+                "precision": "manga",
+                "vintage": "2020-10-31 to 2023-04-01"
+            },
+            {
+                "id": "38067",
+                "gid": "3388062158",
+                "type": "manga",
+                "name": "Fumino's Stationery Life",
+                "precision": "manga",
+                "vintage": "2016-10-25 to 2019-07-25"
+            },
+            {
+                "id": "38066",
+                "gid": "1974402473",
+                "type": "manga",
+                "name": "Saya Saya to",
+                "precision": "manga",
+                "vintage": "2008-09-30 to 2015-01-30"
+            },
+            {
+                "id": "38065",
+                "gid": "3894933498",
+                "type": "manga",
+                "name": "Fake Marriage of a Noblewoman",
+                "precision": "manga",
+                "vintage": "2022-05-25"
+            },
+            {
+                "id": "38064",
+                "gid": "1514968007",
+                "type": "TV",
+                "name": "Reincarnated in a Mafia Dating Sim",
+                "precision": "TV"
+            },
+            {
+                "id": "38063",
+                "gid": "2719754806",
+                "type": "manga",
+                "name": "Knight-Type Girlfriend",
+                "precision": "manga",
+                "vintage": "2022-02-20"
+            },
+            {
+                "id": "38062",
+                "gid": "2234259207",
+                "type": "manga",
+                "name": "Hit Me Hard With Desire",
+                "precision": "manga",
+                "vintage": "2022-10-21 to 2024-08-16"
+            },
+            {
+                "id": "38061",
+                "gid": "2068155898",
+                "type": "manga",
+                "name": "Boring Man and an Extraordinary Man",
+                "precision": "manga",
+                "vintage": "2021-08-20 to 2022-12-16"
+            },
+            {
+                "id": "38060",
+                "gid": "2284471344",
+                "type": "manga",
+                "name": "Strobe in the Dark",
+                "precision": "manga",
+                "vintage": "2011-12-22 to 2013-06-25"
+            },
+            {
+                "id": "38059",
+                "gid": "1670140529",
+                "type": "ONA",
+                "name": "Love Through a Prism",
+                "precision": "ONA",
+                "vintage": "2026-01-15"
+            },
+            {
+                "id": "38058",
+                "gid": "2231779832",
+                "type": "TV",
+                "name": "Star Detective Precure!",
+                "precision": "TV",
+                "vintage": "2026-02"
+            },
+            {
+                "id": "38057",
+                "gid": "2066358285",
+                "type": "TV",
+                "name": "Girl Crush",
+                "precision": "TV"
+            },
+            {
+                "id": "38056",
+                "gid": "3318651371",
+                "type": "movie",
+                "name": "Chibikko Kamu no B\u014dken",
+                "precision": "movie",
+                "vintage": "1976-09-15"
+            },
+            {
+                "id": "38055",
+                "gid": "1169406039",
+                "type": "TV",
+                "name": "Tadaima, Ojamasaremasu!",
+                "precision": "TV",
+                "vintage": "2026"
+            },
+            {
+                "id": "38054",
+                "gid": "2690146694",
+                "type": "manga",
+                "name": "Tadaima, Ojamasaremasu!",
+                "precision": "manga",
+                "vintage": "2020-10-17"
+            },
+            {
+                "id": "38050",
+                "gid": "1881239950",
+                "type": "manga",
+                "name": "Kraken Mare",
+                "precision": "manga",
+                "vintage": "2025-02-25"
+            },
+            {
+                "id": "38049",
+                "gid": "1563959897",
+                "type": "movie",
+                "name": "Eiga Chiikawa: Ningyo no Shima no Himitsu",
+                "precision": "movie",
+                "vintage": "2026"
+            },
+            {
+                "id": "38047",
+                "gid": "1145854891",
+                "type": "manga",
+                "name": "Shinjuku 69 Heaven",
+                "precision": "manga",
+                "vintage": "2019-07-01 to 2020-09-23"
+            },
+            {
+                "id": "38046",
+                "gid": "2498257397",
+                "type": "manga",
+                "name": "Waiting for You at the End of the Runway",
+                "precision": "manga",
+                "vintage": "2023-02-17 to 2023-12-15"
+            },
+            {
+                "id": "38044",
+                "gid": "2787375999",
+                "type": "manga",
+                "name": "I Want to See Me in Your Eyes",
+                "precision": "manga",
+                "vintage": "2023-02-17 to 2024-06-21"
+            },
+            {
+                "id": "38043",
+                "gid": "1606788673",
+                "type": "manga",
+                "name": "Nightingale Awaits the Blooming Love of Spring",
+                "precision": "manga",
+                "vintage": "2020-07-18 to 2021-05-15"
+            },
+            {
+                "id": "38041",
+                "gid": "1333311136",
+                "type": "manga",
+                "name": "Life-man",
+                "precision": "manga",
+                "vintage": "2025-03-20"
+            },
+            {
+                "id": "38040",
+                "gid": "3687435564",
+                "type": "TV",
+                "name": "My Happy Marriage",
+                "precision": "TV 3",
+                "vintage": "2026"
+            },
+            {
+                "id": "38039",
+                "gid": "3080701878",
+                "type": "manga",
+                "name": "Kaa-san ga Daita Namakubi",
+                "precision": "manga",
+                "vintage": "1988-08-06"
+            },
+            {
+                "id": "38038",
+                "gid": "2940979679",
+                "type": "manga",
+                "name": "Shinigami no J\u014dtaij\u014d",
+                "precision": "manga",
+                "vintage": "1985"
+            },
+            {
+                "id": "38037",
+                "gid": "720822275",
+                "type": "manga",
+                "name": "Hakaba Kara Modotta Sh\u014djo",
+                "precision": "manga",
+                "vintage": "1983-12"
+            },
+            {
+                "id": "38036",
+                "gid": "3274140038",
+                "type": "manga",
+                "name": "Girl Who Raised the Dead",
+                "precision": "manga",
+                "vintage": "1987"
+            },
+            {
+                "id": "38035",
+                "gid": "2362073159",
+                "type": "TV",
+                "name": "Now That We Draw",
+                "precision": "TV"
+            },
+            {
+                "id": "38034",
+                "gid": "1446466803",
+                "type": "manga",
+                "name": "Princession Orchestra -Sorezore no Monogatari-",
+                "precision": "manga",
+                "vintage": "2025-11-23"
+            },
+            {
+                "id": "38033",
+                "gid": "1787508820",
+                "type": "movie",
+                "name": "Sai-Kyo-Oh! Zukan: The Ultimate Tournament Tokubetsu-hen Teppen Kimey\u014d ka!",
+                "precision": "movie",
+                "vintage": "2026-01-23"
+            },
+            {
+                "id": "38032",
+                "gid": "2873487074",
+                "type": "manga",
+                "name": "Umanari 1-Furlong Gekij\u014d",
+                "precision": "manga"
+            },
+            {
+                "id": "38031",
+                "gid": "823801159",
+                "type": "ONA",
+                "name": "Uma Musume PisuPisu\u2606SupiSupi Golshi-chan",
+                "precision": "ONA",
+                "vintage": "2024-07-28"
+            },
+            {
+                "id": "38030",
+                "gid": "2348516918",
+                "type": "TV",
+                "name": "Marika's Love Meter Malfunction",
+                "precision": "TV",
+                "vintage": "2026"
+            },
+            {
+                "id": "38029",
+                "gid": "3016027099",
+                "type": "manga",
+                "name": "Marika's Love Meter Malfunction",
+                "precision": "manga",
+                "vintage": "2024-04-28"
+            },
+            {
+                "id": "38028",
+                "gid": "2840029682",
+                "type": "TV",
+                "name": "Drops of God",
+                "precision": "TV",
+                "vintage": "2026"
+            },
+            {
+                "id": "38027",
+                "gid": "737241191",
+                "type": "TV",
+                "name": "Majutsu o Kiwamete Tabi ni Deta Tensei Elf",
+                "precision": "TV"
+            },
+            {
+                "id": "38026",
+                "gid": "2085263050",
+                "type": "manga",
+                "name": "Majutsu o Kiwamete Tabi ni Deta Tensei Elf",
+                "precision": "manga",
+                "vintage": "2023-05-12"
+            },
+            {
+                "id": "38024",
+                "gid": "2069144937",
+                "type": "manga",
+                "name": "Bateren Tales",
+                "precision": "manga",
+                "vintage": "2025-10-03"
+            },
+            {
+                "id": "38022",
+                "gid": "2320006088",
+                "type": "manga",
+                "name": "We're J-Just Childhood Friends",
+                "precision": "manga",
+                "vintage": "2025-07-03"
+            },
+            {
+                "id": "38021",
+                "gid": "2648575839",
+                "type": "movie",
+                "name": "We Are Aliens",
+                "precision": "movie",
+                "vintage": "2026"
+            },
+            {
+                "id": "38020",
+                "gid": "1728052985",
+                "type": "TV",
+                "name": "GAEA-TIMA the Gigantis",
+                "precision": "TV"
+            },
+            {
+                "id": "38019",
+                "gid": "2816980088",
+                "type": "TV",
+                "name": "Killed Again, Mr. Detective?",
+                "precision": "TV",
+                "vintage": "2026-04"
+            },
+            {
+                "id": "38017",
+                "gid": "2987950233",
+                "type": "manga",
+                "name": "Death Defying Princess Creates a Yuri Harem to Survive",
+                "precision": "manga",
+                "vintage": "2024-08-30"
+            },
+            {
+                "id": "38016",
+                "gid": "1913245519",
+                "type": "manga",
+                "name": "Love is Money II",
+                "precision": "manga",
+                "vintage": "2020-01-10 to 2020-06-12"
+            },
+            {
+                "id": "38015",
+                "gid": "2612253689",
+                "type": "manga",
+                "name": "Love is Money",
+                "precision": "manga",
+                "vintage": "2017-08-10 to 2018-07-13"
+            },
+            {
+                "id": "38013",
+                "gid": "844503290",
+                "type": "manga",
+                "name": "Villager A Wants to Save the Villainess at All Costs",
+                "precision": "manga",
+                "vintage": "2021-07-29"
+            },
+            {
+                "id": "38012",
+                "gid": "729760396",
+                "type": "manga",
+                "name": "Strongest Baby Goes Wild!",
+                "precision": "manga",
+                "vintage": "2022-05-26"
+            },
+            {
+                "id": "38011",
+                "gid": "2070924056",
+                "type": "manga",
+                "name": "Sengoku Komachi Kur\u014dtan",
+                "precision": "manga",
+                "vintage": "2017-05-26"
+            },
+            {
+                "id": "38010",
+                "gid": "2470652534",
+                "type": "manga",
+                "name": "Serenade of Spring Thunder",
+                "precision": "manga",
+                "vintage": "2025-04-01"
+            },
+            {
+                "id": "38009",
+                "gid": "2898853238",
+                "type": "manga",
+                "name": "Fatale Game",
+                "precision": "manga",
+                "vintage": "2025-05-23"
+            },
+            {
+                "id": "38005",
+                "gid": "3590710669",
+                "type": "manga",
+                "name": "Delinquent Gacha",
+                "precision": "manga",
+                "vintage": "2025-11-11"
+            },
+            {
+                "id": "38003",
+                "gid": "2602317205",
+                "type": "manga",
+                "name": "Hero Girl and Demon Lord Call It Quits",
+                "precision": "manga",
+                "vintage": "2025-11-10"
+            },
+            {
+                "id": "38002",
+                "gid": "1766171191",
+                "type": "TV",
+                "name": "Love Unseen Beneath the Clear Night Sky",
+                "precision": "TV"
+            },
+            {
+                "id": "38000",
+                "gid": "488618716",
+                "type": "TV",
+                "name": "Sh\u014d 3 Ashibe QQ Goma-chan",
+                "precision": "TV",
+                "vintage": "2026-04"
+            },
+            {
+                "id": "37999",
+                "gid": "1152999988",
+                "type": "TV",
+                "name": "Ky\u014dkai no Melody",
+                "precision": "TV"
+            },
+            {
+                "id": "37998",
+                "gid": "442668255",
+                "type": "manga",
+                "name": "Ky\u014dkai no Melody",
+                "precision": "manga",
+                "vintage": "2025-05-02"
+            },
+            {
+                "id": "37996",
+                "gid": "1655232210",
+                "type": "OAV",
+                "name": "Rayearth Special Edition -Wings of Hope-",
+                "precision": "OAV",
+                "vintage": "1998-12-02"
+            },
+            {
+                "id": "37995",
+                "gid": "3017071576",
+                "type": "ONA",
+                "name": "Death Stranding Isolations",
+                "precision": "ONA",
+                "vintage": "2027"
+            },
+            {
+                "id": "37993",
+                "gid": "1946871354",
+                "type": "TV",
+                "name": "Unaware Atelier Master",
+                "precision": "TV 2"
+            },
+            {
+                "id": "37992",
+                "gid": "2717743322",
+                "type": "TV",
+                "name": "Magic Repo Man",
+                "precision": "TV",
+                "vintage": "2026"
+            },
+            {
+                "id": "37990",
+                "gid": "1344754607",
+                "type": "manga",
+                "name": "Magic Repo Man",
+                "precision": "manga",
+                "vintage": "2023-04-26"
+            },
+            {
+                "id": "37987",
+                "gid": "2975078112",
+                "type": "movie",
+                "name": "Story of the Monkey King",
+                "precision": "movie",
+                "vintage": "1926-10-29"
+            },
+            {
+                "id": "37986",
+                "gid": "1083656483",
+                "type": "TV",
+                "name": "Needy Streamer Overload",
+                "precision": "TV",
+                "vintage": "2026-04"
+            },
+            {
+                "id": "37985",
+                "gid": "2573351772",
+                "type": "TV",
+                "name": "Ojisan wa Kawaii Mono ga Osuki.",
+                "precision": "TV",
+                "vintage": "2026"
+            },
+            {
+                "id": "37984",
+                "gid": "2096251405",
+                "type": "manga",
+                "name": "Ojisan wa Kawaii Mono ga Osuki.",
+                "precision": "manga",
+                "vintage": "2017-07-06"
+            },
+            {
+                "id": "37983",
+                "gid": "3771805564",
+                "type": "manga",
+                "name": "Starting Gate! Uma Musume Pretty Derby",
+                "precision": "manga",
+                "vintage": "2017-07-28"
+            },
+            {
+                "id": "37982",
+                "gid": "2327540062",
+                "type": "manga",
+                "name": "Wimpy Demon King and Tsundere Hero",
+                "precision": "manga",
+                "vintage": "2019-06-14 to 2019-12-13"
+            },
+            {
+                "id": "37981",
+                "gid": "2887323685",
+                "type": "manga",
+                "name": "Afterglow",
+                "precision": "manga",
+                "vintage": "2023-04-28 to 2023-12-28"
+            },
+            {
+                "id": "37980",
+                "gid": "1601775573",
+                "type": "manga",
+                "name": "I Can\u2019t Stand Being Your Childhood Friend",
+                "precision": "manga",
+                "vintage": "2020-10-28 to 2022-07-28"
+            },
+            {
+                "id": "37979",
+                "gid": "979319724",
+                "type": "manga",
+                "name": "Demon Under the Waxing Moon",
+                "precision": "manga",
+                "vintage": "2019-02-21 to 2019-10-21"
+            }
+        ]
+    }
+}
