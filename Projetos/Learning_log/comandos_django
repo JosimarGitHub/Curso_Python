@@ -42,6 +42,7 @@ python manage.py runserver 8001 - MUDAR A PORTA CASO A DEFAULT ESTEJA SENDO USAD
 
 python manage.py shell  -  ABRINDO UM SESSÃO DO SHELL
 
+#######################################################################################################################################################
 
 FAZER AS PAGINAS
 
@@ -68,6 +69,20 @@ Criar um tamplate arquivo.xhtml
 <p>Learning Log helps you keep track of your learning, for an
 y topic you're 
 interested in.</p>
+
+COLOCAR IMAGENS NA PAGINA 
+
+criar uma pasta no diretorio do projeto 'static/imagens/"imagem.jpg"'
+
+No arquivo settings.py acrescentar:
+" # Você pode adicionar esta linha para ajudar o Django a encontrar pastas estáticas adicionais
+STATICFILES_DIRS = [
+    BASE_DIR / 'static', # Adiciona a pasta static que você criou na raiz do projeto
+]
+
+
+
+
 
 
 

@@ -120,6 +120,11 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+# Você pode adicionar esta linha para ajudar o Django a encontrar pastas estáticas adicionais
+STATICFILES_DIRS = [
+    BASE_DIR / 'static', # Adiciona a pasta static que você criou na raiz do projeto
+]
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
