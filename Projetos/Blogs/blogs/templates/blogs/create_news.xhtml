@@ -1,0 +1,15 @@
+{% extends 'blogs/base.xhtml' %}
+
+{% block content %}
+
+<p><h2><a href="{% url 'blogs:news' latest_news.id %}">{{ latest_news }}</a></h2></p>
+
+<p></p>
+
+<form action="{% url 'blogs:create_news' latest_news.id %}" method="post">
+    {% csrf_token %}
+    {{ form.as_div }}
+    <button name="submit">Save</button>
+</form>
+
+{% endblock content %}

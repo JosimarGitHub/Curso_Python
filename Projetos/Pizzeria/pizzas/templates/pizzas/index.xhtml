@@ -1,46 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "www.w3.org">
-<html xmlns="www.w3.org" xml:lang="pt-BR" lang="pt-BR">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Pizzaria Python</title>
-    <style type="text/css">
-        /* Define a imagem de fundo para o corpo (body) da página */
-        body {
-            /*background-image: url(https://img.freepik.com/foto-gratis/vista-superior-comida-deliciosa-espacio-copiar_23-2150873984.jpg);*/
-            background-image: url(static/imagens/pizza_background.jpg); /* */
-            background-repeat: no-repeat; /* Evita a repetição da imagem */
-            background-position: center center; /* Centraliza a imagem no corpo */
-            background-size: cover; /* Ajusta o tamanho para cobrir toda a área visível */
-            background-color: #333333; /* Cor de fundo sólida caso a imagem não carregue */
-            margin: 0;
-            padding: 0;
-            height: 100vh; /* Garante que o corpo ocupe 100% da altura da viewport */
-            display: flex; /* Usa flexbox para fácil centralização vertical e horizontal */
-            flex-direction: column;
-            justify-content: center; /* Centraliza o conteúdo verticalmente */
-            align-items: center; /* Centraliza o conteúdo horizontalmente */
-            color: white; /* Define a cor do texto para melhor leitura sobre a imagem */
-            text-shadow: 2px 2px 4px #000000; /* Adiciona sombra ao texto para destaque */
-        }
+{% extends 'pizzas/base.xhtml' %}
 
-        /* Estiliza o título principal */
-        h1 {
-            font-size: 3em;
-            margin-bottom: 0.5em;
-            text-align: center; /* */
-        }
+{% block content %}
 
-        /* Estiliza a descrição */
-        p {
-            font-size: 1.5em;
-            text-align: center; /* */
-        }
-    </style>
-</head>
-<body>
-    <h1>Pizzaria Python</h1>
-    <p>A pagina de uma pizzaria criada em python com Django</p>
-</body>
-</html>
+<div class="conteudo-lista">
+  <p><span>Pizzas</span></p>
+
+  <ul>
+    {% for pizza in pizzas %}
+      <li><span>
+        <a href="{% url 'pizzas:pizza_top' pizza.id %}">
+          {{ pizza.name }}</a>
+      </span></li>
+    {% empty %}
+      <li>No topics have been added yet.</li>
+    {% endfor %}
+  </ul>
+</div>
+
+{% endblock content %}

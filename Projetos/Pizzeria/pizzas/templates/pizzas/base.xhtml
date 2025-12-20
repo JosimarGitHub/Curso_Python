@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "www.w3.org">
+<html xmlns="www.w3.org" xml:lang="pt-BR" lang="pt-BR">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Pizzaria Python</title>
+    <style type="text/css">
+        /* Define a imagem de fundo para o corpo (body) da página */
+        body {
+            /*background-image: url(https://img.freepik.com/foto-gratis/vista-superior-comida-deliciosa-espacio-copiar_23-2150873984.jpg);*/
+            background-image: url(/static/imagens/pizza_background.jpg); /* */
+            background-repeat: no-repeat; /* Evita a repetição da imagem */
+            background-position: center center; /* Centraliza a imagem no corpo */
+            background-size: cover; /* Ajusta o tamanho para cobrir toda a área visível */
+            background-color: #333333; /* Cor de fundo sólida caso a imagem não carregue */
+            margin: 0;
+            padding: 0;
+            height: 100vh; /* Garante que o corpo ocupe 100% da altura da viewport */
+            display: flex; /* Usa flexbox para fácil centralização vertical e horizontal */
+            flex-direction: column;
+            justify-content: flex-start; /* Centraliza o conteúdo verticalmente */
+            align-items: center; /* Centraliza o conteúdo horizontalmente */
+            color: rgb(255, 255, 255); /* Define a cor do texto para melhor leitura sobre a imagem */
+            text-shadow: 2px 2px 4px #000000; /* Adiciona sombra ao texto para destaque */
+        }
+
+        /* Estiliza o título principal */
+        h1 {
+            font-size: 3em;
+            margin-bottom: 0.5em;
+            text-align: center; /* */
+        }
+
+        /* Estiliza a descrição */
+        p {
+            font-size: 1.5em;
+            text-align: center; /* */
+        }
+
+        /* Cria uma classe para alinhar o conteúdo à esquerda */
+        .conteudo-lista {
+            align-self: flex-start; /* Alinha o container à esquerda dentro do flexbox */
+            margin-left: 10%;       /* Opcional: margem para não colar na borda da tela */
+            text-align: left;       /* Garante que o texto dentro dele seja alinhado à esquerda */
+            color: rgb(0, 0, 0); /* Define a cor do texto para melhor leitura sobre a imagem */
+        }
+
+        /* Garante que a lista não tenha marcadores centralizados */
+        .conteudo-lista ul {
+            text-align: left;
+            list-style-position: inside; /* Mantém as "bolinhas" alinhadas com o texto */
+            padding: 0;
+        }
+
+        .conteudo-lista span {
+            background-color: rgba(0, 0, 0, 0.7); /* Fundo preto semi-transparente */
+            color: #ffcc00;                      /* Cor do texto (ex: amarelo pizza) */
+            padding: 2px 8px;                    /* Espaçamento interno */
+            border-radius: 4px;                  /* Cantos arredondados */
+            display: inline-block;               /* Garante que o fundo respeite o padding */
+            margin-bottom: 5px;                  /* Espaço entre as linhas */
+        }
+
+        /* Remove a cor azul e o sublinhado padrão */
+    .conteudo-lista a {
+        color: inherit; 
+        /*text-decoration: none;  Remove o sublinhado, se desejar */
+    }
+    </style>
+</head>
+<body>
+    <h1>Pizzaria Python</h1>
+    <p>A pagina de uma pizzaria criada em python com Django</p>
+
+    {% block content %}{% endblock content %}
+
+</body>
+</html>

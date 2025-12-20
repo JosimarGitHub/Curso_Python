@@ -1,0 +1,20 @@
+{% extends 'blogs/base.xhtml' %}
+
+{% block content %}
+
+<p><h2>Latest News</h2></p>
+
+<ul>
+  {% for news in latest_news %}
+    <li>
+        <a href="{% url 'blogs:news' news.id %}">{{ news.text }}</a>
+        <p></p>
+    </li>
+  {% empty %}
+    <li>No topics have been added yet.</li>
+  {% endfor %}
+</ul>
+
+<a href="{% url 'blogs:create_post' %}"><h3>Add a new post</h3></a>
+
+{% endblock content %}

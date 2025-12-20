@@ -1,0 +1,21 @@
+{% extends 'pizzas/base.xhtml' %}
+
+{% block content %}
+
+<div class="conteudo-lista">
+  <p><span><a href="{% url 'pizzas:index' %}">Pizza:</a> {{pizza.name}}</span></p>
+
+  <p><span>Toppings:</span></p>
+
+  <ul>
+    {% for topping in toppings %}
+      <li><span>
+        {{ topping.name }}
+      </span></li>
+    {% empty %}
+      <li>No topics have been added yet.</li>
+    {% endfor %}
+  </ul>
+</div>
+
+{% endblock content %}
