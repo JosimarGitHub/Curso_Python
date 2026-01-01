@@ -1,7 +1,95 @@
-<p>
-  <h3><a href="{% url 'blogs:index' %}">Blog TechChurch</a>
---
-  <a href="{% url 'blogs:latest_news' %}">Latest News</a></h3>
-</p>
+<!-- Usando o CSS -->
+<style>
+  /* Container que envolve o título e o login */
+  .header-container {
+    background-color: #2c2c2e; /* Fundo cinza escuro */
+    font-family: sans-serif;
+    color: #007bff; /* Cor do texto padrão */
+    display: flex;               /* Ativa o alinhamento flexível */
+    justify-content: space-between; /* Empurra um para cada lado */
+    align-items: top;         /* Alinha verticalmente ao centro */
+    padding: 10px 0;             /* Espaçamento interno opcional */
+  }
+
+  /* Remove margens padrão do h3 para não desalinhar */
+  .header-container h3 {
+    margin: 0;
+  }
+
+  /* Agrupa a saudação e o botão de logout */
+  .user-menu {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaço entre o nome do usuário e o botão */
+  }
+
+  /* Estilo compartilhado para o Link de Login e o Botão de Logout */
+  .auth-style {
+    background: none;      /* Remove cor de fundo do botão */
+    border: none;          /* Remove borda do botão */
+    padding: 0;            /* Remove preenchimento interno */
+    cursor: pointer;       /* Faz o mouse virar "mãozinha" no botão */
+    
+    text-decoration: none; /* Estilo de texto */
+    font-weight: bold;
+    font-size: 16px;       /* Ajuste conforme necessário */
+    color: #007bff;        /* Mesma cor para ambos */
+    font-family: inherit;  /* Usa a mesma fonte do restante do site */
+  }
+
+  .auth-style:hover {
+    text-decoration: underline; /* Efeito ao passar o mouse */
+  }
+
+  p {
+    background-color: #2c2c2e; /* Fundo cinza escuro */
+    font-family: sans-serif;
+    color: #007bff; /* Cor do texto padrão */
+  }
+  
+  h2 {
+    background-color: #2c2c2e; /* Fundo cinza escuro */
+    font-family: sans-serif;
+    color: #007bff; /* Cor do texto padrão */
+  }
+
+  h3 {
+    background-color: #2c2c2e; /* Fundo cinza escuro */
+    font-family: sans-serif;
+    color: #007bff; /* Cor do texto padrão */
+  }
+
+  ul {
+    background-color: #2c2c2e; /* Fundo cinza escuro */
+    font-family: sans-serif;
+    color: #007bff; /* Cor do texto padrão */
+  }
+
+  a {
+        color: #007bff;
+    }
+</style>
+
+<div class="header-container">
+  <h3>
+    <a href="{% url 'blogs:index' %}">Blog TechChurch</a> --
+    <a href="{% url 'blogs:latest_news' %}">Latest News</a>
+  </h3>
+  
+  <div class="user-menu">
+    {% if user.is_authenticated %}
+    <span>Hello, {{ user.username }}. --</span>
+    <form action="{% url 'accounts:logout' %}" method="post" style="margin: 0;">
+      {% csrf_token %}
+      <button name="submit" class="auth-style">Log out</button>
+    </form>
+    {% else %}
+      <a href="{% url 'accounts:register' %}" class="auth-style">Register</a> --
+      <a href="{% url 'accounts:login' %}" class="auth-style">Log in</a>
+    {% endif %}
+  </div>
+</div>
+
+<hr> <!-- Linha divisória -->
 
 {% block content %}{% endblock content %}

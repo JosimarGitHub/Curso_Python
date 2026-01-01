@@ -1,8 +1,13 @@
-{% extends 'blogs/base.xhtml' %}
+{% extends 'blogs/base.html' %}
+
+{% block page_header %}
+
+<h2>Latest News</h2>
+
+{% endblock page_header %}
+
 
 {% block content %}
-
-<p><h2>Latest News</h2></p>
 
 <ul>
   {% for news in latest_news %}
@@ -14,7 +19,8 @@
     <li>No topics have been added yet.</li>
   {% endfor %}
 </ul>
-
-<a href="{% url 'blogs:create_post' %}"><h3>Add a new post</h3></a>
+{% if user.is_authenticated %}
+  <a href="{% url 'blogs:create_post' %}"><h3>Add a new post</h3></a>
+{% endif %}
 
 {% endblock content %}

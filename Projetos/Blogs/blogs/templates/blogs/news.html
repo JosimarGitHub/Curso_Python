@@ -1,0 +1,33 @@
+{% extends 'blogs/base.html' %}
+
+{% block page_header %}
+
+<h3>{{ latest_news.text }}</h3>
+
+{% endblock page_header %}
+
+{% block content %}
+
+  {% for newsAux in news %}
+    <div class="card mb-3 border-info">
+      <!-- Card header with timestamp and edit link -->
+      <h4 class="card-header bg-dark text-info">
+        {{ newsAux.date_added|date:'M d, Y H:i' }}
+        <small>
+          {% if user == newsAux.latest_news.owner  %}
+          <a href="{% url 'blogs:edit_news' newsAux.id %}" class="link-info">Edit news</a>
+          {% endif %}
+        </small>
+      </h4>
+      <!-- Card body with entry text -->
+      <div class="card-body">{{ newsAux.text|safe }}</div> 
+    </div>
+  {% empty %}
+    <p>No news have been added yet.</p>
+    {% if user ==  latest_news.owner  %}
+      <a href="{% url 'blogs:create_news' latest_news.id %}" class="link-info">Add a news for the post</a>
+    {% endif %}
+
+  {% endfor %}
+
+{% endblock content %}

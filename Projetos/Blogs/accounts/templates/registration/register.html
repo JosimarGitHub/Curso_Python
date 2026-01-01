@@ -1,0 +1,38 @@
+{% extends 'blogs/base.html' %}
+{% load django_bootstrap5 %}
+
+{% block page_header %}
+
+  <h2>Register your account:</h2>
+
+{% endblock page_header%}
+
+{% block content %}
+
+<style>
+    /* Muda a cor dos Títulos dos campos (Labels) para Azul Info 
+    form label.form-label {
+        color: #0dcaf0 !important; 
+        font-weight: bold;
+    }*/
+
+    /* Muda a cor das dicas de senha (Help Text) para Branco/Cinza Claro */
+    .form-text, .help-block {
+        color: #d1d1d1 !important; 
+        font-size: 0.9em;
+    }
+
+    /* Opcional: Se as dicas vierem em lista (<ul>), garante que fiquem visíveis */
+    ul.help-block li {
+        color: #d1d1d1 !important;
+    }
+
+</style>
+
+<form action="{% url 'accounts:register' %}" method="post" class="p-4 border border-info rounded bg-dark">
+  {% csrf_token %}
+  {% bootstrap_form form %}
+  {% bootstrap_button button_type="submit" content="Registrar" button_class="btn-info fw-bold" %}
+</form>
+
+{% endblock content %}

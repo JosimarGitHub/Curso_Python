@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-#lrbx%jmg4zaunq*06&it%+jz9qbty(h&vq_y#k-jgrtz&x39)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '172.16.0.133','192.168.0.103']
 
 
 # Application definition
@@ -33,6 +33,11 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     # My apps
     'blogs',
+    'ckeditor',
+    'accounts',
+
+    # Third party apps.
+    'django_bootstrap5',
 
     #Default Apps
     'django.contrib.admin',
@@ -124,3 +129,15 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# My settings. 
+LOGIN_REDIRECT_URL = 'blogs:index'
+LOGOUT_REDIRECT_URL = 'blogs:index'
+
+# Exemplo para CKEditor
+CKEDITOR_CONFIGS = {
+    'default': {
+        'height': 500,  # Altura em pixels
+        'width': 'auto', # Largura total
+    },
+}

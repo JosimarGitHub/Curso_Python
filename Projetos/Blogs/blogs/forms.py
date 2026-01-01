@@ -1,4 +1,5 @@
 from django import forms
+from ckeditor.widgets import CKEditorWidget
 
 from .models import LatestNews, News
 
@@ -14,4 +15,7 @@ class NewsForm(forms.ModelForm):
         model = News
         fields = ['text']
         labels = {'text': ''}
-        widgets = {'text': forms.Textarea(attrs={'rows': 50, 'cols': 250})}
+        #widgets = {'text': forms.Textarea(attrs={'rows': 50, 'cols': 250})}
+        widgets = {
+            'text': forms.CharField(widget=CKEditorWidget())
+        }

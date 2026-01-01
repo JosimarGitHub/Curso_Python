@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    
+    <!-- Todo o código CSS fica aqui dentro -->
+    <style>
+        body {
+            background-color: #2c2c2e; /* Fundo cinza escuro */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: sans-serif;
+            color: #e0e0e0; /* Cor do texto padrão */
+        }
+
+        .login-card {
+            display: flex;
+            background-color: #1c1c1e; /* Fundo do card mais escuro */
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4); /* Sombra suave */
+            overflow: hidden; /* Garante que a imagem e o formulário fiquem dentro das bordas arredondadas */
+            width: 600px; /* Largura total do card */
+            max-width: 90vw;
+        }
+
+        .form-section {
+            padding: 40px;
+            flex: 1; /* Ocupa metade do espaço */
+        }
+
+        .image-section {
+            flex: 1; /* Ocupa metade do espaço */
+            /* Use um URL de imagem que você goste aqui, ou carregue via static */
+            background: url('images.unsplash.com') no-repeat center center/cover;
+            /* Adiciona um gradiente escuro por cima da imagem para o texto ficar legível */
+            background-image: linear-gradient(to top right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)), url('images.unsplash.com');
+        }
+
+        h2 {
+            color: #fff;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #aaa;
+            font-size: 0.8em;
+            text-transform: uppercase;
+        }
+
+        input, input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            background-color: #38383a;
+            border: 1px solid #555;
+            border-radius: 6px;
+            color: #fff;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #6dd0f7;
+        }
+
+        .forgot-password {
+            display: block;
+            font-size: 0.8em;
+            color: #6dd0f7;
+            text-decoration: none;
+            margin-bottom: 20px;
+        }
+
+        .btn-gradient {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            /* Cria o gradiente roxo/rosa */
+            background-image: linear-gradient(to right, #7ac1eb, #0381a0);
+            color: white;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        .btn-gradient:hover {
+            opacity: 0.9;
+        }
+
+        .register-link {
+            display: block;
+            text-align: center;
+            margin-top: 25px;
+            font-size: 0.8em;
+            color: #6dd0f7;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <div class="form-section">
+                {% extends 'blogs/base.html' %}
+                {% block content %}
+                <h2>Faça o seu login</h2>
+                <form action="{% url 'accounts:login' %}" method="post">
+                    {% csrf_token %}
+                    <!-- Renderização manual dos campos como no seu layout -->
+                    <label for="id_username">Nome</label>
+                    <input type="text" name="username" id="id_username" required>
+
+                    <label for="id_password">senha</label>
+                    <input type="password" name="password" id="id_password" required>
+
+                    <a href="{% url 'accounts:password_reset' %}" class="forgot-password">esqueci minha senha</a>
+
+                    <button type="submit" class="btn-gradient">Entrar</button>
+                </form>
+                <a href="{% url 'accounts:register' %}" class="register-link">ainda não tenho uma conta.</a>
+                {% endblock content %}
+
+            </div>
+            <div class="image-section">
+                <!-- A imagem de montanhas é carregada via CSS -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
